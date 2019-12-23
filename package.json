@@ -5,6 +5,8 @@
   "author": "Sarah Schütz",
   "private": true,
   "scripts": {
+    "preinstall": "$npm_execpath --silent run checknpm",
+    "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️  Use npm not yarn! ⚠️ ' && echo && exit 1)",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
