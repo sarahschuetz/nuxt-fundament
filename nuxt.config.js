@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+// eslint-disable-next-line
+require('dotenv').config();
+
 export default {
   mode: 'universal',
   /*
@@ -36,8 +39,12 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
+
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Nuxt.js modules
@@ -65,7 +72,7 @@ export default {
       const { data } = await axios.post(
         process.env.BACKEND_URL + process.env.GRAPHQL_PATH,
         {
-          query: '{ entries(section: []) {uri}}',
+          query: '{ entries(section: []) { uri }}',
         },
         {
           headers: {
@@ -73,7 +80,15 @@ export default {
           },
         },
       );
-      return data.data.entries.map((entry) => `/${entry.uri}`);
+
+      return data.data.entries
+        .filter((entry) => entry.uri !== null)
+        .map((entry) => {
+          if (entry.uri === '__home__') {
+            return '/';
+          }
+          return `/${entry.uri}`;
+        });
     },
   },
 };
