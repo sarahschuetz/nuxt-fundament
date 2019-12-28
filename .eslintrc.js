@@ -55,6 +55,7 @@ module.exports = {
     }],
 
     'max-len': ['error', {
+      'comments': 160,
       'ignoreTemplateLiterals': true,
       'ignoreStrings': true,
       'ignorePattern': 'd=\".*\"', // ignore long svg path descriptions

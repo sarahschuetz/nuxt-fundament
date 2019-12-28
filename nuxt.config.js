@@ -35,6 +35,9 @@ export default {
 
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+
+    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
+    '@nuxtjs/tailwindcss',
   ],
 
   modules: [
@@ -56,9 +59,6 @@ export default {
   },
 
   build: {
-    /*
-     ** You can extend webpack config here
-     */
     extend() {},
   },
 
