@@ -59,6 +59,12 @@ export default {
   },
 
   build: {
+    extractCSS: {
+      allChunks: true,
+    },
+
+    transpile: ['gitter-overlay'],
+
     extend() {},
   },
 

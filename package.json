@@ -21,8 +21,11 @@
     "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/axios": "^5.9.0",
     "axios": "^0.19.0",
+    "gitter-overlay": "^1.0.2",
     "graphql-tag": "^2.10.1",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "tailwindcss-gitter": "^1.0.0",
+    "tailwindcss-schrift": "^1.0.0"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
